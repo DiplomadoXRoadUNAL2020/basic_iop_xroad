@@ -56,7 +56,7 @@ O en Windows
 ```
 dir
 ```
-Y debería ver los tres archivos que contiene este directorio:
+Y debería ver los dos archivos y una carpeta(transito_si) que contiene este directorio:
 ```
 README.md  docker-compose.yml transito_si
 ```
