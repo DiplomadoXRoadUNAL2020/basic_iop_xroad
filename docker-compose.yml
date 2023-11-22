@@ -3,7 +3,7 @@ version: "3.5"
 services:
   central-server:
     container_name: xroad_sc
-    image: niis/xroad-central-server:bionic-6.24.1
+    image: niis/xroad-central-server
     ports:
       - "4000:4000"
       - "4001:80"
@@ -13,19 +13,19 @@ services:
         ipv4_address: 172.25.0.2
   transito-security-server:
     container_name: transito_ss
-    image: niis/xroad-security-server:bionic-6.24.1
+    image: niis/xroad-security-server
     ports:
       - "4100:4000"
-      - "4101:80"
+      - "4101:8080"
     networks:
       x-road-network:
         ipv4_address: 172.25.0.3
   tecnologia-security-server:
     container_name: tecnologia_ss
-    image: niis/xroad-security-server:bionic-6.24.1
+    image: niis/xroad-security-server
     ports:
       - "4200:4000"
-      - "4201:80"
+      - "4201:8080"
     networks:
       x-road-network:
         ipv4_address: 172.25.0.4
@@ -46,9 +46,9 @@ services:
     build: 
       context: .
       dockerfile: transito_si/Dockerfile
-    container_name: transito_si
+    container_name: transito-si
     ports:
-      - "1002:8080"
+      - "80:8080"
     depends_on:
       - "transito_db" 
     networks:
